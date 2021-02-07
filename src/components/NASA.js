@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./NASA.css";
 
 const NASA = () => {
   //states
@@ -11,6 +12,7 @@ const NASA = () => {
   const date = "2015-01-01";
   const dim = 0.05;
 
+  //get location
   const geo = () => {
     navigator.geolocation.getCurrentPosition(geoSuccess);
   };
@@ -30,6 +32,7 @@ const NASA = () => {
     geo();
   }, []);
 
+  //set api url when latitude or longitude changes
   useEffect(() => {
     setUrl(
       `https://api.nasa.gov/planetary/earth/imagery?lon=${longitude}&lat=${latitude}&date=${date}&dim=${dim}&api_key=${apiKey}`
@@ -37,7 +40,7 @@ const NASA = () => {
   }, [latitude, longitude]);
 
   return (
-    <div>
+    <div className="nasa">
       <h1>NASA Satellite Image</h1>
       <h3>{"Coordinates: Longitude=" + longitude + " Latitude=" + latitude}</h3>
       {longitude && latitude ? (
