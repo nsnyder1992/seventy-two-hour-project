@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+
+//components
 import Zomato from "./components/Zomato";
+import NASA from "./components/NASA";
 
 function App() {
   return (
     <div className="App">
       <Zomato />
+      <NASA />
     </div>
   );
 }
