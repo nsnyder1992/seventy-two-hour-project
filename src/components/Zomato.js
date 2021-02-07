@@ -1,73 +1,63 @@
 import React from 'react';
-import { geolocated } from 'react-geolocated';
+// import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+// import App from './../App';
+import './Zomato.css';
 
-if (!navigator.geolocation) {
-    console.error(`Your browser doesn't support Geolocation`);
-} else {
-    console.log('Good to go!');
-};
 
-const location = () => {
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);
-};
 
-const onSuccess = () => {
-    const {
-        latitude,
-        longitude
-    } = location.coords;
-    console.log(`Your location: (${location.coords.latitude},${location.coords.longitude})`);
-};
+const Zomato = ({ props }) => {
 
-const onError = () => {
-    console.log('Failed to get location');
-};
+    // const baseUrl = `https://developers.zomato.com/api/v2.1/geocode`;
+    // const key = 'f0b8f4f1370b6c9eb8cc12e061b6c06f';
 
-const Zomato = () => {
-    //     const url = `https://developers.zomato.com/api/v2.1/geocode?lat=${position.latitude}&lon=${position.longitude}`;
-    //     const key = 'f0b8f4f1370b6c9eb8cc12e061b6c06f';
+    const [cords, setCords] = useState();
+    const geo = () => {
+        navigator.geolocation.getCurrentPosition(geoSuccess);
+    };
+    const geoSuccess = (pos) => {
+        // const crd = pos.coords;
+        console.log("Your current position is:");
+        console.log(`Latitude : ${pos.coords.latitude}`);
+        console.log(`Longitude: ${pos.coords.longitude}`);
+        setCords(pos.cords);
+    };
+    useEffect(() => {
+        geo();
+    }, []);
 
-    const location = () => {
-        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    const fetchResults = () => {
+        const url = `https://developers.zomato.com/api/v2.1/geocode?lat=${setCords.latitude}&lon=${setCords.longitude}`;
+        console.log(url);
+        const response = fetch(url, {
+            headers: {
+                Accept: "application/json",
+                "User-Key": "f0b8f4f1370b6c9eb8cc12e061b6c06f"
+            }
+                .then(res => res.json())
+                .then((data) => {
+                    this.setState({ 'zomato': data })
+                })
+                .catch(console.log)
+        });
+
     };
 
-    const onSuccess = () => {
-        const {
-            latitude,
-            longitude
-        } = location.coords;
-        console.log(`Your location: (${location.coords.latitude},${location.coords.longitude})`);
+
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        fetchResults();
     };
-
-    const onError = () => {
-        console.log('Failed to get location');
-    };
-
-    //     const componentDidMount = ({ position }) => {
-    //         navigator.geolocation.getCurrentPosition(() => {
-    //             const position = {
-    //                 latitude,
-    //                 longitude
-    //             }
-    //         });
-    //     }
-
-
-    //     const initData = async () => {
-    //         const response = await fetch(url);
-    //         const info = await response.json();
-
-    //         initData(info);
-    //     };
-
-    //     useEffect(() => {
-    //         initData();
-    //     }, []);
 
     return (
         <div>
             <h1>Restaurants near you!</h1>
+            <div className="restaurant-card">
+
+                <p>{ }</p>
+
+            </div>
 
         </div>
     );
