@@ -1,30 +1,12 @@
 import { useEffect, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Zomato from "./components/Zomato";
+import NASA from "./components/NASA";
 
 function App() {
-  const [cords, setCords] = useState();
-  const geo = () => {
-    navigator.geolocation.getCurrentPosition(geoSuccess);
-  };
-  const geoSuccess = (pos) => {
-    var crd = pos.coords;
-
-    console.log("Your current position is:");
-    console.log(`Latitude : ${crd.latitude}`);
-    console.log(`Longitude: ${crd.longitude}`);
-    console.log(`More or less ${crd.accuracy} meters.`);
-    setCords(pos.cords);
-  };
-
-  useEffect(() => {
-    geo();
-  }, []);
-
   return (
     <div className="App">
-      <Zomato />
+      <NASA />
     </div>
   );
 }
