@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, CardColumns } from "reactstrap";
-import RestaurantCard from "./ResuarantCard";
+import RestaurantCard from "./RestaurantCard";
 
 import "./Zomato.css";
 
