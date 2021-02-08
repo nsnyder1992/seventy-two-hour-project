@@ -20,14 +20,15 @@ const Weather = ({ latitude, longitude }) => {
 
   const styles = {
     card: {
-      minWidth: "100px",
+      minWidth: "150px",
       maxWidth: "250px",
     },
     img: {
       margin: "auto",
-      marginTop: "20px",
-      maxWidth: "100px",
-      maxHeight: "100px",
+      marginTop: "5px",
+      marginBottom: "5px",
+      maxWidth: "150px",
+      maxHeight: "150px",
     },
   };
 
@@ -70,16 +71,16 @@ const Weather = ({ latitude, longitude }) => {
       <div className="mainDiv">
         <Card style={styles.card}>
           <CardTitle tag="h1">Weather</CardTitle>
-          <CardSubtitle tag="h4" className="text-muted">
+          <CardSubtitle tag="h5" className="text-muted">
             {description}
           </CardSubtitle>
+          <img
+            className="img-thumbnail rounded"
+            style={styles.img}
+            src={icon}
+            alt="..."
+          />
           <CardBody>
-            <img
-              className="img-thumbnail rounded"
-              style={styles.img}
-              src={icon}
-              alt="..."
-            />
             <CardText tag="h6">Humidity: {humidity}%</CardText>
             <CardText tag="h4">
               Temp: {Math.floor(temp * 100) / 100}&deg;
