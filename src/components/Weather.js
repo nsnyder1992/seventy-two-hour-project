@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { Container, Row } from "reactstrap";
+import "./Weather.css";
 
 const Weather = ({ latitude, longitude }) => {
   const [degF, setDegF] = useState(true);
@@ -34,12 +36,21 @@ const Weather = ({ latitude, longitude }) => {
   };
 
   return (
-    <div>
-      <h1>Weather</h1>
-      <p>
-        {Math.floor(temp * 100) / 100} {degF ? "deg F" : "deg C"}
-      </p>
-      <button onClick={changeDeg}>Change to deg {!degF ? "F" : "C"}</button>
+    <div className="weather-body">
+      <Container>
+        <Row>
+          <h1>Weather</h1>
+        </Row>
+        <Row>
+          <p>
+            {Math.floor(temp * 100) / 100}
+            {degF ? "deg F" : "deg C"}
+          </p>
+        </Row>
+        <Row>
+          <button onClick={changeDeg}>Change to deg {!degF ? "F" : "C"}</button>
+        </Row>
+      </Container>
     </div>
   );
 };

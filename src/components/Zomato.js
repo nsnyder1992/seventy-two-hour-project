@@ -24,7 +24,6 @@ const Zomato = ({ latitude, longitude }) => {
             })
           );
           setZomato(tempZomato);
-          console.log(zomato);
         })
         .catch((err) => console.error(err));
     }
@@ -35,7 +34,11 @@ const Zomato = ({ latitude, longitude }) => {
       <h1>Restaurants near you!</h1>
       <button onClick={handleSubmit}>Try it out!</button>
       {zomato.map((restaurant) => {
-        return <p key={restaurant.id}>{restaurant.name}</p>;
+        return (
+          <div className="restaurant-card" key={restaurant.id}>
+            <p>{restaurant.name}</p>
+          </div>
+        );
       })}
     </div>
   );

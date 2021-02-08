@@ -1,14 +1,14 @@
-.zom-body{
-    background-color: red;
-    padding: 20%;
+.zom-body {
+  background-color: #883f44;
+  padding: 25px;
 }
 
-.restaurant-card{
-    border: 2px solid black;
-    margin: 10px auto;
-    width: 200px;
-    cursor: pointer;
-    border-radius: 3px;
-    background: white;
-    padding: 10px;
+.restaurant-card {
+  border: 2px solid black;
+  margin: 10px auto;
+  width: 200px;
+  cursor: pointer;
+  border-radius: 3px;
+  background: white;
+  padding: 10px;
 }
