@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Button, CardDeck, CardColumns } from "reactstrap";
+import React, { useState } from "react";
+import { Button, CardColumns } from "reactstrap";
 import RestaurantCard from "./ResuarantCard";
 
 import "./Zomato.css";
@@ -20,7 +20,6 @@ const Zomato = ({ latitude, longitude }) => {
         .then((res) => res.json())
         .then((json) => {
           json.nearby_restaurants.map((restaurant) => {
-            console.log(restaurant);
             tempZomato.push({
               id: restaurant.restaurant.id,
               name: restaurant.restaurant.name,

@@ -1,13 +1,4 @@
-import {
-  Card,
-  CardBody,
-  CardTitle,
-  CardText,
-  CardImg,
-  Button,
-  CardLink,
-  CardHeader,
-} from "reactstrap";
+import { Card, CardBody, CardText, CardLink, CardHeader } from "reactstrap";
 
 const RestaurantCard = (props) => {
   return (

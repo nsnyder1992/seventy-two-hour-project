@@ -33,7 +33,6 @@ function App() {
       <Router>
         <Header latitude={latitude} longitude={longitude} />
       </Router>
-
       <Footer />
     </div>
   );
