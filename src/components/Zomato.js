@@ -7,7 +7,7 @@ const Zomato = ({ latitude, longitude }) => {
 
   const handleSubmit = () => {
     if (latitude !== undefined && longitude !== undefined) {
-      let url = `https://cors-anywhere.herokuapp.com/http://developers.zomato.com/api/v2.1/geocode?lat=${latitude}&lon=${longitude}`;
+      let url = `https://developers.zomato.com/api/v2.1/geocode?lat=${latitude}&lon=${longitude}`;
       let tempZomato = [];
       fetch(url, {
         headers: {
@@ -18,12 +18,15 @@ const Zomato = ({ latitude, longitude }) => {
         .then((res) => res.json())
         .then((json) => {
           json.nearby_restaurants.map((restaurant) =>
-            tempZomato.push(restaurant)
+            tempZomato.push({
+              id: restaurant.restaurant.id,
+              name: restaurant.restaurant.name,
+            })
           );
           setZomato(tempZomato);
           console.log(zomato);
         })
-        .catch(console.log);
+        .catch((err) => console.error(err));
     }
   };
 
@@ -31,6 +34,9 @@ const Zomato = ({ latitude, longitude }) => {
     <div className="zom-body">
       <h1>Restaurants near you!</h1>
       <button onClick={handleSubmit}>Try it out!</button>
+      {zomato.map((restaurant) => {
+        return <p key={restaurant.id}>{restaurant.name}</p>;
+      })}
     </div>
   );
 };
