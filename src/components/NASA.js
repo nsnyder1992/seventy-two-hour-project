@@ -1,8 +1,21 @@
 import { useState, useEffect } from "react";
+import {
+  Card,
+  CardBody,
+  CardHeader,
+} from "reactstrap";
+import "./NASA.css";
 
 const NASA = ({ latitude, longitude }) => {
   //states
   const [url, setUrl] = useState();
+
+  const styles = {
+    card: {
+      minWidth: "300px",
+      maxWidth: "400px",
+    },
+  };
 
   //api constants
   const apiKey = "Feg2He9MO8QQwfv727oLBFgBGw1x2FtciQWPWY68";
@@ -20,14 +33,17 @@ const NASA = ({ latitude, longitude }) => {
 
   return (
     <div className="nasa-body main">
-      <div className="mainDiv">
-        <h1>NASA Satellite Image</h1>
-
-        {longitude && latitude && url ? (
-          <img src={url} style={{ minWidth: 250, maxWidth: 350 }} />
-        ) : (
-          <h6>Image pending...</h6>
-        )}
+      <div className="nasa-card">
+        <Card style={styles.card}>
+          <CardHeader tag="h1">NASA Satellite Image</CardHeader>
+          <CardBody>
+            {longitude && latitude && url ? (
+              <img src={url} style={{ minWidth: 250, maxWidth: 350 }} />
+            ) : (
+                <h6>Image pending...</h6>
+              )}
+          </CardBody>
+        </Card>
       </div>
     </div>
   );
