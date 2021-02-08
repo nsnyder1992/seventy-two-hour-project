@@ -1,9 +1,21 @@
 import React, { useEffect, useState } from "react";
+import {
+  Card,
+  CardBody,
+  CardHeader,
+} from "reactstrap";
 import "./Zomato.css";
 
 const Zomato = () => {
   const [latitude, setLatitude] = useState();
   const [longitude, setLongitude] = useState();
+
+  const styles = {
+    card: {
+      minWidth: "300px",
+      maxWidth: "400px",
+    },
+  };
 
   const geo = () => {
     navigator.geolocation.getCurrentPosition(geoSuccess);
@@ -36,12 +48,27 @@ const Zomato = () => {
   console.log(data);
 
   return (
-    <div className="zom-body">
-      <h1>Restaurants Near You!</h1>
+
+    <div className="">
       <div className="restaurant-card">
-        <ul>
-          <li>{data.length > 0 ? data[0].restaurant.name : <></>}</li>
-        </ul>
+        <Card style={styles.card}>
+          <CardHeader tag="h1">Restaurants Near You!</CardHeader>
+          <CardBody>
+            <ul>
+              <li>{data.length > 0 ? data[0].restaurant.name : <></>}</li>
+              <li>{data.length > 1 ? data[1].restaurant.name : <></>}</li>
+              <li>{data.length > 2 ? data[2].restaurant.name : <></>}</li>
+              <li>{data.length > 3 ? data[3].restaurant.name : <></>}</li>
+              <li>{data.length > 4 ? data[4].restaurant.name : <></>}</li>
+              <li>{data.length > 5 ? data[5].restaurant.name : <></>}</li>
+              <li>{data.length > 6 ? data[6].restaurant.name : <></>}</li>
+              <li>{data.length > 7 ? data[7].restaurant.name : <></>}</li>
+              <li>{data.length > 8 ? data[8].restaurant.name : <></>}</li>
+              <li>{data.length > 9 ? data[9].restaurant.name : <></>}</li>
+            </ul>
+          </CardBody>
+        </Card>
+
       </div>
     </div>
   );
