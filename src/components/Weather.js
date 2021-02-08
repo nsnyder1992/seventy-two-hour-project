@@ -9,13 +9,14 @@ import {
   CardText,
   CardSubtitle,
 } from "reactstrap";
-// import "./Weather.css";
+import "./Weather.css";
 
 const Weather = ({ latitude, longitude }) => {
   const [degF, setDegF] = useState(true);
   const [temp, setTemp] = useState();
   const [humidity, setHumidity] = useState();
   const [icon, setIcon] = useState();
+  const [location, setLocation] = useState();
   const [description, setDescription] = useState();
 
   const styles = {
@@ -47,6 +48,7 @@ const Weather = ({ latitude, longitude }) => {
           setIcon(
             "http://openweathermap.org/img/w/" + json.weather[0].icon + ".png"
           );
+          setLocation(json.name);
           setDescription(json.weather[0].description);
         })
         .catch((err) => console.error(err));
@@ -67,10 +69,10 @@ const Weather = ({ latitude, longitude }) => {
   };
 
   return (
-    <div className="weather-body main">
-      <div className="mainDiv">
+    <div className="main">
+      <div className="weather-body mainDiv">
         <Card style={styles.card}>
-          <CardTitle tag="h1">Weather</CardTitle>
+          <CardTitle tag="h1">{location}</CardTitle>
           <CardSubtitle tag="h5" className="text-muted">
             {description}
           </CardSubtitle>

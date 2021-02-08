@@ -7,7 +7,6 @@ import "./App.css";
 
 //components
 import Header from "./site/Header";
-import SideNav from "./site/SideNav";
 import Footer from "./site/Footer";
 
 function App() {

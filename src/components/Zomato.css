@@ -1,7 +1,8 @@
-.zom-cards {
+.zom-body {
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* .restaurant-card {
