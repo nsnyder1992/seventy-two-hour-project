@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "reactstrap";
+import { Button, CardDeck, CardColumns } from "reactstrap";
 import RestaurantCard from "./ResuarantCard";
 
 import "./Zomato.css";
@@ -39,16 +39,18 @@ const Zomato = ({ latitude, longitude }) => {
         <h1>Restaurants near you!</h1>
         <Button onClick={handleSubmit}>Try it out!</Button>
         <div className="zom-cards">
-          {zomato.map((restaurant) => {
-            return (
-              <RestaurantCard
-                key={restaurant.id}
-                name={restaurant.name}
-                rating={restaurant.rating}
-                className="restaurant-card"
-              />
-            );
-          })}
+          <CardColumns>
+            {zomato.map((restaurant) => {
+              return (
+                <RestaurantCard
+                  key={restaurant.id}
+                  name={restaurant.name}
+                  rating={restaurant.rating}
+                  className="restaurant-card"
+                />
+              );
+            })}
+          </CardColumns>
         </div>
       </div>
     </div>
