@@ -1,13 +1,25 @@
-import { Card, CardBody, CardTitle, CardText, CardImg } from "reactstrap";
+import {
+  Card,
+  CardBody,
+  CardTitle,
+  CardText,
+  CardImg,
+  Button,
+  CardLink,
+  CardHeader,
+} from "reactstrap";
 
 const RestaurantCard = (props) => {
   return (
     <Card style={{ marginTop: "15px", minWidth: "200px", maxWidth: "300px" }}>
+      <CardHeader tag="h4">{props.name}</CardHeader>
       <CardBody>
-        <CardTitle tag="h4">{props.name}</CardTitle>
         <CardText tag="h6" className="mb-2 text-muted">
           Rating: {props.rating}
         </CardText>
+        <CardLink href={props.menu} target="blank">
+          Menu
+        </CardLink>
       </CardBody>
     </Card>
   );

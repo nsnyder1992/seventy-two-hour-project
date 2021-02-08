@@ -25,6 +25,7 @@ const Zomato = ({ latitude, longitude }) => {
               id: restaurant.restaurant.id,
               name: restaurant.restaurant.name,
               rating: restaurant.restaurant.user_rating.aggregate_rating,
+              menu: restaurant.restaurant.menu_url,
             });
           });
           setZomato(tempZomato);
@@ -46,6 +47,7 @@ const Zomato = ({ latitude, longitude }) => {
                   key={restaurant.id}
                   name={restaurant.name}
                   rating={restaurant.rating}
+                  menu={restaurant.menu}
                   className="restaurant-card"
                 />
               );

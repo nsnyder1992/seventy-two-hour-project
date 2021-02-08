@@ -8,6 +8,7 @@ import {
   CardBody,
   CardText,
   CardSubtitle,
+  CardHeader,
 } from "reactstrap";
 import "./Weather.css";
 
@@ -21,8 +22,8 @@ const Weather = ({ latitude, longitude }) => {
 
   const styles = {
     card: {
-      minWidth: "150px",
-      maxWidth: "250px",
+      minWidth: "300px",
+      maxWidth: "400px",
     },
     img: {
       margin: "auto",
@@ -72,7 +73,10 @@ const Weather = ({ latitude, longitude }) => {
     <div className="main">
       <div className="weather-body mainDiv">
         <Card style={styles.card}>
-          <CardTitle tag="h1">{location}</CardTitle>
+          <CardHeader tag="h1">Weather</CardHeader>
+          <CardTitle tag="h3" className="text-muted">
+            {location}
+          </CardTitle>
           <CardSubtitle tag="h5" className="text-muted">
             {description}
           </CardSubtitle>
