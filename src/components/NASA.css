@@ -1,4 +1,7 @@
-.nasa-body {
-  background-color: #48497e;
+.nasa-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin:10px;
   padding: 25px;
 }
