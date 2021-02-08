@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import "./Zomato.css";
+import "./Zomato.css";
 
 const Zomato = () => {
   const [latitude, setLatitude] = useState();
