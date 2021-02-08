@@ -49,7 +49,7 @@ const Zomato = () => {
 
   return (
 
-    <div className="">
+    <div className="main">
       <div className="restaurant-card">
         <Card style={styles.card}>
           <CardHeader tag="h1">Restaurants Near You!</CardHeader>
