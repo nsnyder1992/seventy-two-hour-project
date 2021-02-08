@@ -77,12 +77,7 @@ const Weather = ({ latitude, longitude }) => {
           <CardSubtitle tag="h5" className="text-muted">
             {description}
           </CardSubtitle>
-          <img
-            className="img-thumbnail rounded"
-            style={styles.img}
-            src={icon}
-            alt="..."
-          />
+          <img className="rounded" style={styles.img} src={icon} alt="..." />
           <CardBody>
             <CardText tag="h6">Humidity: {humidity}%</CardText>
             <CardText tag="h4">
