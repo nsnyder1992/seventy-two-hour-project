@@ -8,6 +8,7 @@ import "./App.css";
 //components
 import Header from "./site/Header";
 import SideNav from "./site/SideNav";
+import Footer from "./site/Footer";
 
 function App() {
   const [latitude, setLatitude] = useState();
@@ -30,10 +31,11 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
       <Router>
-        <SideNav latitude={latitude} longitude={longitude} />
+        <Header latitude={latitude} longitude={longitude} />
       </Router>
+
+      <Footer />
     </div>
   );
 }

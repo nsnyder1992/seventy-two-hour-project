@@ -1,9 +1,14 @@
-.zom-body {
-  background-color: #883f44;
-  padding: 25px;
+.zom-cards {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.restaurant-card {
+/* .restaurant-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border: 2px solid black;
   margin: 10px auto;
   width: 200px;
@@ -11,4 +16,4 @@
   border-radius: 3px;
   background: white;
   padding: 10px;
-}
+} */

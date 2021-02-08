@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "reactstrap";
+import RestaurantCard from "./ResuarantCard";
 
 import "./Zomato.css";
 
@@ -18,12 +19,14 @@ const Zomato = ({ latitude, longitude }) => {
       })
         .then((res) => res.json())
         .then((json) => {
-          json.nearby_restaurants.map((restaurant) =>
+          json.nearby_restaurants.map((restaurant) => {
+            console.log(restaurant);
             tempZomato.push({
               id: restaurant.restaurant.id,
               name: restaurant.restaurant.name,
-            })
-          );
+              rating: restaurant.restaurant.user_rating.aggregate_rating,
+            });
+          });
           setZomato(tempZomato);
         })
         .catch((err) => console.error(err));
@@ -31,17 +34,22 @@ const Zomato = ({ latitude, longitude }) => {
   };
 
   return (
-    <div className="zom-body main">
-      <div className="mainDiv">
+    <div className=" main">
+      <div className="zom-body mainDiv">
         <h1>Restaurants near you!</h1>
         <Button onClick={handleSubmit}>Try it out!</Button>
-        {zomato.map((restaurant) => {
-          return (
-            <div className="restaurant-card" key={restaurant.id}>
-              <p>{restaurant.name}</p>
-            </div>
-          );
-        })}
+        <div className="zom-cards">
+          {zomato.map((restaurant) => {
+            return (
+              <RestaurantCard
+                key={restaurant.id}
+                name={restaurant.name}
+                rating={restaurant.rating}
+                className="restaurant-card"
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );
