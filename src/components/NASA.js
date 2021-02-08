@@ -7,7 +7,6 @@ const NASA = ({ latitude, longitude }) => {
 
   //api constants
   const apiKey = "Feg2He9MO8QQwfv727oLBFgBGw1x2FtciQWPWY68";
-  // const date = "2015-01-01";
   const date = "2015-01-01";
   const dim = 0.05;
 

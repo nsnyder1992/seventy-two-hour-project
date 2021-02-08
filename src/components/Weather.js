@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
 const Weather = ({ latitude, longitude }) => {
-  const [weather, setWeather] = useState();
   const [degF, setDegF] = useState(true);
   const [temp, setTemp] = useState();
 
