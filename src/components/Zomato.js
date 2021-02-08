@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import "./Zomato.css";
 
@@ -51,5 +52,7 @@ const Zomato = () => {
             </div>
         </div>
     );
+
+
 };
 export default Zomato;
