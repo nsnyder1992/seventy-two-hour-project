@@ -5,7 +5,7 @@ import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
 //components
 import NASA from "../components/NASA";
 import Weather from "../components/Weather";
-// import Zomato from "../components/Zomato";
+import Zomato from "../components/Zomato";
 
 const Header = ({ latitude, longitude }) => {
   return (

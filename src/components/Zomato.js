@@ -40,7 +40,7 @@ const Zomato = ({ latitude, longitude }) => {
         <h1>Restaurants near you!</h1>
         <Button onClick={handleSubmit}>Try it out!</Button>
         <div className="zom-cards">
-          <CardColumns>
+          <CardColumns style={{ maxWidth: "1050px" }}>
             {zomato.map((restaurant) => {
               return (
                 <RestaurantCard
