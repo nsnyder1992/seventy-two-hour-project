@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { Container, Row } from "reactstrap";
+// import "./NASA.css";
 
 const NASA = ({ latitude, longitude }) => {
   //states
@@ -22,6 +24,8 @@ const NASA = ({ latitude, longitude }) => {
     <div className="nasa-body main">
       <div className="mainDiv">
         <h1>NASA Satellite Image</h1>
+
+        {/* <h3>{"Longitude: " + longitude + " Latitude: " + latitude}</h3> */}
 
         {longitude && latitude && url ? (
           <img src={url} style={{ minWidth: 250, maxWidth: 350 }} />

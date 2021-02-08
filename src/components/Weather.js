@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import {
+  Container,
+  Row,
   Button,
   Card,
   CardTitle,
@@ -41,6 +43,7 @@ const Weather = ({ latitude, longitude }) => {
       )
         .then((res) => res.json())
         .then((json) => {
+          console.log(json);
           setTemp(json.main.temp);
           setHumidity(json.main.humidity);
           setIcon(

@@ -14,7 +14,7 @@ const Header = ({ latitude, longitude }) => {
         <NavbarBrand href="/">Geo Location App</NavbarBrand>
         <Link to="/nasa">Nasa</Link>
         <Link to="/weather">Weather</Link>
-        {/* <Link to="/zomato">Zomato</Link> */}
+        <Link to="/zomato">Zomato</Link>
         <Nav className="ml-auto">
           <NavLink href="https:github.com/nsnyder1992/seventy-two-hour-project">
             Github
@@ -30,9 +30,9 @@ const Header = ({ latitude, longitude }) => {
         <Route exact path="/weather">
           <Weather latitude={latitude} longitude={longitude} />
         </Route>
-        {/* <Route exact path="/zomato">
+        <Route exact path="/zomato">
           <Zomato latitude={latitude} longitude={longitude} />
-        </Route> */}
+        </Route>
         <Route exact path="/">
           <NASA latitude={latitude} longitude={longitude} />
         </Route>
