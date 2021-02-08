@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Button } from "reactstrap";
 
 import "./Zomato.css";
 
@@ -30,16 +31,18 @@ const Zomato = ({ latitude, longitude }) => {
   };
 
   return (
-    <div className="zom-body">
-      <h1>Restaurants near you!</h1>
-      <button onClick={handleSubmit}>Try it out!</button>
-      {zomato.map((restaurant) => {
-        return (
-          <div className="restaurant-card" key={restaurant.id}>
-            <p>{restaurant.name}</p>
-          </div>
-        );
-      })}
+    <div className="zom-body main">
+      <div className="mainDiv">
+        <h1>Restaurants near you!</h1>
+        <Button onClick={handleSubmit}>Try it out!</Button>
+        {zomato.map((restaurant) => {
+          return (
+            <div className="restaurant-card" key={restaurant.id}>
+              <p>{restaurant.name}</p>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

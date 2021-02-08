@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 
 //components
+import Header from "./site/Header";
 import SideNav from "./site/SideNav";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <Router>
         <SideNav latitude={latitude} longitude={longitude} />
       </Router>

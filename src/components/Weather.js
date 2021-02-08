@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Container, Row } from "reactstrap";
+import { Container, Row, Button } from "reactstrap";
 import "./Weather.css";
 
 const Weather = ({ latitude, longitude }) => {
@@ -36,21 +36,25 @@ const Weather = ({ latitude, longitude }) => {
   };
 
   return (
-    <div className="weather-body">
-      <Container>
-        <Row>
-          <h1>Weather</h1>
-        </Row>
-        <Row>
-          <p>
-            {Math.floor(temp * 100) / 100}
-            {degF ? "deg F" : "deg C"}
-          </p>
-        </Row>
-        <Row>
-          <button onClick={changeDeg}>Change to deg {!degF ? "F" : "C"}</button>
-        </Row>
-      </Container>
+    <div className="weather-body main">
+      <div className="mainDiv">
+        <Container>
+          <Row>
+            <h1>Weather</h1>
+          </Row>
+          <Row>
+            <p>
+              {Math.floor(temp * 100) / 100}
+              {degF ? "deg F" : "deg C"}
+            </p>
+          </Row>
+          <Row>
+            <Button onClick={changeDeg}>
+              Change to deg {!degF ? "F" : "C"}
+            </Button>
+          </Row>
+        </Container>
+      </div>
     </div>
   );
 };

@@ -21,24 +21,26 @@ const NASA = ({ latitude, longitude }) => {
   }, [latitude, longitude]);
 
   return (
-    <div className="nasa-body">
-      <Container>
-        <Row className="text-center">
-          <h1 className="text-center">NASA Satellite Image</h1>
-        </Row>
-        <Row>
-          <h3>
-            {"Coordinates: Longitude=" + longitude + " Latitude=" + latitude}
-          </h3>
-        </Row>
-        <Row>
-          {longitude && latitude && url ? (
-            <img src={url} style={{ minWidth: 250, maxWidth: 350 }} />
-          ) : (
-            <h6>Image pending...</h6>
-          )}
-        </Row>
-      </Container>
+    <div className="nasa-body main">
+      <div className="mainDiv">
+        <Container>
+          <Row className="text-center">
+            <h1 className="text-center">NASA Satellite Image</h1>
+          </Row>
+          <Row>
+            <h3>
+              {"Coordinates: Longitude=" + longitude + " Latitude=" + latitude}
+            </h3>
+          </Row>
+          <Row>
+            {longitude && latitude && url ? (
+              <img src={url} style={{ minWidth: 250, maxWidth: 350 }} />
+            ) : (
+              <h6>Image pending...</h6>
+            )}
+          </Row>
+        </Container>
+      </div>
     </div>
   );
 };

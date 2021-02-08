@@ -3,11 +3,17 @@
 }
 
 /* body */
+html,
 body {
-  padding: 15px;
+  padding: 0px;
+  margin: 0px;
   background-color: white;
   color: whites;
   font: Belleza;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 /* footer */
@@ -24,8 +30,8 @@ footer p {
 
 /* main */
 .main {
-  background-color: white;
-  color: black;
+  /* background-color: white;
+  color: black; */
   height: 100%;
   min-height: 100%;
 }
@@ -34,12 +40,13 @@ footer p {
   margin: auto;
   width: 90%;
   padding: 5px;
+  min-height: 650px;
 }
 
 .sidebar {
   display: flex;
   background-color: #53565a;
-  margin-top: 10px;
+  margin-top: 0px;
 }
 
 ul {
@@ -67,9 +74,9 @@ ul {
 
 /* header */
 .header {
-  margin-top: 0.5em !important;
+  margin-top: 0 !important;
   text-align: center;
-  background-color: #53565a;
+  background-color: #101316;
   color: white;
 }
 

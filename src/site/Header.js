@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header>
       <Navbar className="header">
-        <NavbarBrand href="/">React Library</NavbarBrand>
+        <NavbarBrand href="/">Geo Location App</NavbarBrand>
         <Nav className="ml-auto">
           <NavItem>
             <NavLink href="https:github.com/nsnyder1992/seventy-two-hour-project">
