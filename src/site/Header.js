@@ -16,7 +16,10 @@ const Header = ({ latitude, longitude }) => {
         <Link to="/weather">Weather</Link>
         <Link to="/zomato">Zomato</Link>
         <Nav className="ml-auto">
-          <NavLink href="https:github.com/nsnyder1992/seventy-two-hour-project">
+          <NavLink
+            href="https:github.com/nsnyder1992/seventy-two-hour-project"
+            target="blank"
+          >
             Github
           </NavLink>
         </Nav>
@@ -31,7 +34,7 @@ const Header = ({ latitude, longitude }) => {
           <Weather latitude={latitude} longitude={longitude} />
         </Route>
         <Route exact path="/zomato">
-          <Zomato />
+          <Zomato latitude={latitude} longitude={longitude} />
         </Route>
         <Route exact path="/">
           <NASA latitude={latitude} longitude={longitude} />
