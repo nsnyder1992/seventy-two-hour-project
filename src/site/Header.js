@@ -7,7 +7,7 @@ import NASA from "../components/NASA";
 import Weather from "../components/Weather";
 import Zomato from "../components/Zomato";
 
-const Header = ({ latitude, longitude }) => {
+const Header = ({ latitude, longitude, geo }) => {
   return (
     <header>
       <Navbar className="header">
@@ -28,16 +28,16 @@ const Header = ({ latitude, longitude }) => {
       <Switch>
         <Route exact path="/nasa">
           {document.body.classList.add("background-red")}
-          <NASA latitude={latitude} longitude={longitude} />
+          <NASA latitude={latitude} longitude={longitude} geo={geo} />
         </Route>
         <Route exact path="/weather">
-          <Weather latitude={latitude} longitude={longitude} />
+          <Weather latitude={latitude} longitude={longitude} geo={geo} />
         </Route>
         <Route exact path="/zomato">
-          <Zomato latitude={latitude} longitude={longitude} />
+          <Zomato latitude={latitude} longitude={longitude} geo={geo} />
         </Route>
         <Route exact path="/">
-          <NASA latitude={latitude} longitude={longitude} />
+          <NASA latitude={latitude} longitude={longitude} geo={geo} />
         </Route>
       </Switch>
     </header>

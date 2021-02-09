@@ -24,14 +24,10 @@ function App() {
     setLongitude(Math.floor(crd.longitude * 100) / 100); //rounded to two decimal places
   };
 
-  useEffect(() => {
-    geo();
-  }, []);
-
   return (
     <div className="App">
       <Router>
-        <Header latitude={latitude} longitude={longitude} />
+        <Header latitude={latitude} longitude={longitude} geo={geo} />
       </Router>
       <Footer />
     </div>

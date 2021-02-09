@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Card, CardBody, CardHeader } from "reactstrap";
 import "./Zomato.css";
 
-const Zomato = ({ latitude, longitude }) => {
+const Zomato = ({ latitude, longitude, geo }) => {
+  const [data, setData] = useState([]);
+
   const styles = {
     card: {
       minWidth: "300px",
@@ -10,11 +12,9 @@ const Zomato = ({ latitude, longitude }) => {
     },
   };
 
-  const [data, setData] = useState([]);
-  let url = `https://developers.zomato.com/api/v2.1/geocode?lat=${latitude}&lon=${longitude}`;
-
   const initData = async () => {
     if (latitude !== undefined && longitude !== undefined) {
+      let url = `https://developers.zomato.com/api/v2.1/geocode?lat=${latitude}&lon=${longitude}`;
       const response = await fetch(url, {
         headers: {
           Accept: "application/json",
@@ -27,8 +27,12 @@ const Zomato = ({ latitude, longitude }) => {
   };
 
   useEffect(() => {
+    geo();
+  }, []);
+
+  useEffect(() => {
     initData();
-  }, [url]);
+  }, [latitude, longitude]);
   console.log(data);
 
   return (

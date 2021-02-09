@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Card, CardBody, CardHeader } from "reactstrap";
 import "./NASA.css";
 
-const NASA = ({ latitude, longitude }) => {
+const NASA = ({ latitude, longitude, geo }) => {
   //states
   const [url, setUrl] = useState();
 
@@ -17,6 +17,10 @@ const NASA = ({ latitude, longitude }) => {
   const apiKey = "Feg2He9MO8QQwfv727oLBFgBGw1x2FtciQWPWY68";
   const date = "2015-01-01";
   const dim = 0.06;
+
+  useEffect(() => {
+    geo();
+  }, []);
 
   //set api url when latitude or longitude
   useEffect(() => {

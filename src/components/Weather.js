@@ -10,7 +10,7 @@ import {
 } from "reactstrap";
 import "./Weather.css";
 
-const Weather = ({ latitude, longitude }) => {
+const Weather = ({ latitude, longitude, geo }) => {
   const [degF, setDegF] = useState(true);
   const [temp, setTemp] = useState();
   const [humidity, setHumidity] = useState();
@@ -52,6 +52,10 @@ const Weather = ({ latitude, longitude }) => {
         .catch((err) => console.error(err));
     }
   };
+
+  useEffect(() => {
+    geo();
+  }, []);
 
   useEffect(() => {
     fetchWether();
