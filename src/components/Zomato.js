@@ -1,15 +1,8 @@
 import React, { useEffect, useState } from "react";
-import {
-  Card,
-  CardBody,
-  CardHeader,
-} from "reactstrap";
+import { Card, CardBody, CardHeader } from "reactstrap";
 import "./Zomato.css";
 
-const Zomato = () => {
-  const [latitude, setLatitude] = useState();
-  const [longitude, setLongitude] = useState();
-
+const Zomato = ({ latitude, longitude }) => {
   const styles = {
     card: {
       minWidth: "300px",
@@ -17,30 +10,20 @@ const Zomato = () => {
     },
   };
 
-  const geo = () => {
-    navigator.geolocation.getCurrentPosition(geoSuccess);
-  };
-  const geoSuccess = (pos) => {
-    console.log("Your current position is:");
-    console.log(`Latitude : ${pos.coords.latitude}`);
-    console.log(`Longitude: ${pos.coords.longitude}`);
-    setLatitude(pos.coords.latitude);
-    setLongitude(pos.coords.longitude);
-  };
-
-  geo();
   const [data, setData] = useState([]);
   let url = `https://developers.zomato.com/api/v2.1/geocode?lat=${latitude}&lon=${longitude}`;
 
   const initData = async () => {
-    const response = await fetch(url, {
-      headers: {
-        Accept: "application/json",
-        "User-Key": "f0b8f4f1370b6c9eb8cc12e061b6c06f",
-      },
-    });
-    const restaurant = await response.json();
-    setData(restaurant.nearby_restaurants);
+    if (latitude !== undefined && longitude !== undefined) {
+      const response = await fetch(url, {
+        headers: {
+          Accept: "application/json",
+          "User-Key": "f0b8f4f1370b6c9eb8cc12e061b6c06f",
+        },
+      });
+      const restaurant = await response.json();
+      setData(restaurant.nearby_restaurants);
+    }
   };
   useEffect(() => {
     initData();
@@ -48,7 +31,6 @@ const Zomato = () => {
   console.log(data);
 
   return (
-
     <div className="main">
       <div className="restaurant-card">
         <Card style={styles.card}>
@@ -68,7 +50,6 @@ const Zomato = () => {
             </ul>
           </CardBody>
         </Card>
-
       </div>
     </div>
   );

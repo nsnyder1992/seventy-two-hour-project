@@ -31,7 +31,7 @@ const Header = ({ latitude, longitude }) => {
           <Weather latitude={latitude} longitude={longitude} />
         </Route>
         <Route exact path="/zomato">
-          <Zomato />
+          <Zomato latitude={latitude} longitude={longitude} />
         </Route>
         <Route exact path="/">
           <NASA latitude={latitude} longitude={longitude} />
