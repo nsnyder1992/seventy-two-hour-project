@@ -33,7 +33,6 @@ const Zomato = ({ latitude, longitude, geo }) => {
   useEffect(() => {
     initData();
   }, [latitude, longitude]);
-  console.log(data);
 
   return (
     <div className="main">
