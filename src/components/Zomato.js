@@ -25,6 +25,7 @@ const Zomato = ({ latitude, longitude }) => {
       setData(restaurant.nearby_restaurants);
     }
   };
+
   useEffect(() => {
     initData();
   }, [url]);
@@ -54,4 +55,5 @@ const Zomato = ({ latitude, longitude }) => {
     </div>
   );
 };
+
 export default Zomato;

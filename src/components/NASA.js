@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  Card,
-  CardBody,
-  CardHeader,
-} from "reactstrap";
+import { Card, CardBody, CardHeader } from "reactstrap";
 import "./NASA.css";
 
 const NASA = ({ latitude, longitude }) => {
@@ -20,7 +16,7 @@ const NASA = ({ latitude, longitude }) => {
   //api constants
   const apiKey = "Feg2He9MO8QQwfv727oLBFgBGw1x2FtciQWPWY68";
   const date = "2015-01-01";
-  const dim = 0.05;
+  const dim = 0.06;
 
   //set api url when latitude or longitude
   useEffect(() => {
@@ -37,11 +33,11 @@ const NASA = ({ latitude, longitude }) => {
         <Card style={styles.card}>
           <CardHeader tag="h1">NASA Satellite Image</CardHeader>
           <CardBody>
-            {longitude && latitude && url ? (
+            {url ? (
               <img src={url} style={{ minWidth: 250, maxWidth: 350 }} />
             ) : (
-                <h6>Image pending...</h6>
-              )}
+              <h6>Image pending...</h6>
+            )}
           </CardBody>
         </Card>
       </div>
