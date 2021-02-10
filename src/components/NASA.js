@@ -6,6 +6,7 @@ const NASA = ({ latitude, longitude, geo }) => {
   //states
   const [url, setUrl] = useState();
 
+  //styles
   const styles = {
     card: {
       minWidth: "300px",
@@ -18,6 +19,7 @@ const NASA = ({ latitude, longitude, geo }) => {
   const date = "2015-01-01";
   const dim = 0.06;
 
+  //get coordinates
   useEffect(() => {
     geo();
   }, []);

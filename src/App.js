@@ -15,13 +15,11 @@ function App() {
 
   //get location
   const geo = () => {
-    navigator.geolocation.getCurrentPosition(geoSuccess);
-  };
-
-  const geoSuccess = (pos) => {
-    var crd = pos.coords;
-    setLatitude(Math.floor(crd.latitude * 100) / 100); //rounded to two decimal places
-    setLongitude(Math.floor(crd.longitude * 100) / 100); //rounded to two decimal places
+    navigator.geolocation.getCurrentPosition((pos) => {
+      var crd = pos.coords;
+      setLatitude(Math.floor(crd.latitude * 100) / 100); //rounded to two decimal places
+      setLongitude(Math.floor(crd.longitude * 100) / 100); //rounded to two decimal places
+    });
   };
 
   return (

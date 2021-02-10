@@ -11,6 +11,7 @@ import {
 import "./Weather.css";
 
 const Weather = ({ latitude, longitude, geo }) => {
+  //states
   const [degF, setDegF] = useState(true);
   const [temp, setTemp] = useState();
   const [humidity, setHumidity] = useState();
@@ -18,6 +19,7 @@ const Weather = ({ latitude, longitude, geo }) => {
   const [location, setLocation] = useState();
   const [description, setDescription] = useState();
 
+  //styles
   const styles = {
     card: {
       minWidth: "300px",
@@ -32,8 +34,10 @@ const Weather = ({ latitude, longitude, geo }) => {
     },
   };
 
+  //api constants
   const apiKey = "a7cd2e3688791a2c9585ba22bcbad0d5";
 
+  //fetch function
   const fetchWether = () => {
     if (latitude !== undefined && longitude !== undefined) {
       fetch(
@@ -53,20 +57,19 @@ const Weather = ({ latitude, longitude, geo }) => {
     }
   };
 
+  //update coordinates
   useEffect(() => {
     geo();
   }, []);
 
+  //get weather info
   useEffect(() => {
     fetchWether();
   }, [latitude, longitude]);
 
+  //toggle degF/C
   const changeDeg = () => {
-    if (degF) {
-      setTemp((temp - 32) * (5 / 9));
-    } else {
-      setTemp(temp * (9 / 5) + 32);
-    }
+    degF ? setTemp((temp - 32) * (5 / 9)) : setTemp(temp * (9 / 5) + 32);
     setDegF(!degF);
   };
 
@@ -88,7 +91,6 @@ const Weather = ({ latitude, longitude, geo }) => {
               Temp: {Math.floor(temp * 100) / 100}&deg;
               {degF ? "F" : "C"}
             </CardText>
-
             <Button onClick={changeDeg}>
               Change to &deg;
               {!degF ? "F" : "C"}

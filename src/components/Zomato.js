@@ -3,8 +3,10 @@ import { Card, CardBody, CardHeader } from "reactstrap";
 import "./Zomato.css";
 
 const Zomato = ({ latitude, longitude, geo }) => {
+  //states
   const [data, setData] = useState([]);
 
+  //styles
   const styles = {
     card: {
       minWidth: "300px",
@@ -12,6 +14,7 @@ const Zomato = ({ latitude, longitude, geo }) => {
     },
   };
 
+  // get data from api
   const initData = async () => {
     if (latitude !== undefined && longitude !== undefined) {
       let url = `https://developers.zomato.com/api/v2.1/geocode?lat=${latitude}&lon=${longitude}`;
@@ -26,10 +29,12 @@ const Zomato = ({ latitude, longitude, geo }) => {
     }
   };
 
+  //update coordinates
   useEffect(() => {
     geo();
   }, []);
 
+  //update data from api
   useEffect(() => {
     initData();
   }, [latitude, longitude]);
